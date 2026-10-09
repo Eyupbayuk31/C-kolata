@@ -270,12 +270,14 @@ strong { font-weight: 500; }
 .kemer-alani {
   position: relative;
   justify-self: center;
-  width: min(400px, 100%);
+  width: min(390px, 100%);
 }
+/* video 480x480 ve ortasında "MB CHOCOLATE" yazısı var: çerçeve neredeyse kare,
+   kemerin kavisi üst %36'da kalıyor ki yazı kırpılmasın */
 .kemer {
   position: relative;
-  aspect-ratio: 4 / 5.2;
-  border-radius: 999px 999px 18px 18px;
+  aspect-ratio: 1 / 1.06;
+  border-radius: 50% 50% 18px 18px / 36% 36% 18px 18px;
   overflow: hidden;
   border: 1px solid var(--cizgi-guclu);
   box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.9), 0 0 0 10px rgba(15, 11, 9, 0.6);
@@ -284,7 +286,7 @@ strong { font-weight: 500; }
 .kemer::after {
   content: "";
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, transparent 55%, rgba(15, 11, 9, 0.55));
+  background: linear-gradient(180deg, transparent 62%, rgba(15, 11, 9, 0.6));
 }
 .kemer video { width: 100%; height: 100%; object-fit: cover; }
 .kemer-alani::before {
@@ -292,22 +294,24 @@ strong { font-weight: 500; }
   position: absolute;
   inset: -22px;
   border: 1px solid var(--cizgi);
-  border-radius: 999px 999px 26px 26px;
+  border-radius: 50% 50% 26px 26px / 38% 38% 26px 26px;
   pointer-events: none;
 }
 
 .kemer-paket {
   position: absolute;
-  width: 44%;
-  border-radius: 14px;
+  width: 31%;
+  border-radius: 10px;
   overflow: hidden;
   background: #efe6d8;
+  border: 1px solid rgba(244, 236, 225, 0.35);
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85), 0 0 60px -10px var(--urun-renk);
   animation: yuz 7s ease-in-out infinite;
   z-index: 3;
 }
-.kemer-paket-1 { left: -22%; bottom: 8%; --aci: -8deg; }
-.kemer-paket-2 { right: -18%; bottom: -6%; width: 38%; --aci: 7deg; animation-delay: -3.5s; }
+/* paketler yazının altında, kemerin alt köşelerinde */
+.kemer-paket-1 { left: -15%; bottom: -10%; --aci: -7deg; }
+.kemer-paket-2 { right: -12%; bottom: -5%; width: 27%; --aci: 6deg; animation-delay: -3.5s; }
 @keyframes yuz {
   0%, 100% { transform: translateY(0) rotate(var(--aci)); }
   50% { transform: translateY(-14px) rotate(var(--aci)); }
@@ -783,8 +787,9 @@ strong { font-weight: 500; }
   .kahraman-ic { grid-template-columns: 1fr; gap: 70px; }
   .kemer-alani { width: min(300px, 74vw); }
   .rozet { width: 104px; right: -30px; top: -26px; }
-  .kemer-paket-1 { left: -12%; }
-  .kemer-paket-2 { right: -10%; }
+  .asagi { display: none; }
+  .kemer-paket-1 { left: -8%; }
+  .kemer-paket-2 { right: -6%; }
 
   .tanitim, .iki-kolon, .tesis, .urun-detay, .iletisim-izgara { grid-template-columns: 1fr; gap: 50px; }
   .tanitim-ozellik { grid-template-columns: 1fr; }
