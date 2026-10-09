@@ -158,3 +158,17 @@ legend { font-weight: 700; padding: 0 8px; color: var(--kahve); }
   .form-sayfa { padding: 16px; }
   .gorsel-kutu { max-width: 280px; }
 }
+
+/* deneme modu */
+.deneme-kutu {
+  display: grid; gap: 8px; justify-items: start;
+  margin: 0 0 22px; padding: 16px 18px;
+  border: 1px dashed var(--cizgi); border-radius: 8px;
+}
+.deneme-kutu p { margin: 0; font-weight: 600; }
+.deneme-kutu small { color: var(--soluk); }
+.deneme-serit {
+  margin: 0; padding: 10px 20px;
+  background: #fff3cd; color: #5c4400; border-bottom: 1px solid #e6cf85;
+  font-size: 0.9rem; text-align: center;
+}

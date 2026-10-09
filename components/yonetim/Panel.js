@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { GitHub } from "@/lib/github";
+import { DenemeGitHub, GitHub } from "@/lib/github";
 import Giris from "./Giris";
 import UrunPaneli from "./UrunPaneli";
 import HaberPaneli from "./HaberPaneli";
@@ -54,6 +54,11 @@ export default function Panel({ varsayilanDepo, siteAdresi }) {
     }
   }, []);
 
+  function denemeBaslat() {
+    setGirisHatasi("");
+    setGh(new DenemeGitHub());
+  }
+
   // daha önce giriş yapılmışsa otomatik bağlan
   useEffect(() => {
     let kayit = null;
@@ -105,6 +110,10 @@ export default function Panel({ varsayilanDepo, siteAdresi }) {
       setBildirim(null);
       try {
         const sha = await gh.guncelle(istek);
+        if (gh.deneme) {
+          setBildirim({ tur: "basari", metin: "Deneme modu: değişiklik burada göründü ama siteye kaydedilmedi." });
+          return true;
+        }
         setBildirim({ tur: "basari", metin: basariMesaji });
         yayiniIzle(sha);
         return true;
@@ -119,7 +128,7 @@ export default function Panel({ varsayilanDepo, siteAdresi }) {
   );
 
   if (!gh) {
-    return <Giris varsayilanDepo={varsayilanDepo} baglan={baglan} hata={girisHatasi} yukleniyor={yukleniyor} />;
+    return <Giris varsayilanDepo={varsayilanDepo} baglan={baglan} deneme={denemeBaslat} hata={girisHatasi} yukleniyor={yukleniyor} />;
   }
 
   const ortak = { gh, kaydet, mesgul, bildir: setBildirim };
@@ -161,6 +170,12 @@ export default function Panel({ varsayilanDepo, siteAdresi }) {
           </button>
         </div>
       </header>
+
+      {gh.deneme && (
+        <p className="deneme-serit">
+          DENEME MODU: Her şeyi serbestçe deneyin. Yaptığınız değişiklikler sadece bu sayfada kalır, siteye ve GitHub'a hiçbir şey gönderilmez; sayfayı yenileyince silinir.
+        </p>
+      )}
 
       <nav className="sekmeler" role="tablist">
         {sekmeler.map((s) => (

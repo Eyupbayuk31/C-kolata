@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const ANAHTAR_ADRESI = "https://github.com/settings/personal-access-tokens/new";
 
-export default function Giris({ varsayilanDepo, baglan, hata, yukleniyor }) {
+export default function Giris({ varsayilanDepo, baglan, deneme, hata, yukleniyor }) {
   const [depo, setDepo] = useState(varsayilanDepo);
   const [token, setToken] = useState("");
   const [hatirla, setHatirla] = useState(true);
@@ -42,6 +42,14 @@ export default function Giris({ varsayilanDepo, baglan, hata, yukleniyor }) {
           {yukleniyor ? "Bağlanıyor…" : "Giriş yap"}
         </button>
       </form>
+
+      <div className="deneme-kutu">
+        <p>Anahtarınız yok ya da sadece görmek mi istiyorsunuz?</p>
+        <button type="button" className="ikincil" onClick={deneme}>
+          Deneme modunda aç
+        </button>
+        <small>Hiçbir şey kaydedilmez, siteye gönderilmez.</small>
+      </div>
 
       <details className="rehber">
         <summary>Erişim anahtarını nasıl alırım? (bir kez yapılır)</summary>
