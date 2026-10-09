@@ -17,6 +17,23 @@ Next.js (App Router) ile yazılmış tanıtım ve toptan teklif sitesi. Veritaba
 
 Yeni ürün eklerken `public/img/urunler/` içine `<slug>.webp` koymak yeterli.
 
+## GitHub Pages
+
+`main`'e her push'ta `.github/workflows/pages.yml` siteyi derleyip yayınlar.
+Repo ayarlarında Settings → Pages → Source: **GitHub Actions** seçili olmalı.
+
+Adres: `https://<kullanici>.github.io/<repo>/`
+
+Kendi alan adını (mbcikolata.com) bağlayınca:
+
+1. `public/CNAME` dosyası oluşturup içine alan adını yaz (`mbcikolata.com`)
+2. Settings → Pages → Custom domain alanına aynı adı gir
+3. DNS'te alan adını GitHub'a yönlendir
+
+`public/CNAME` varsa workflow alt yolu kullanmaz, site kök adreste açılır.
+Not: GitHub Pages sunucu tarafı yönlendirme yapamaz, bu yüzden `next.config.mjs`
+içindeki eski WordPress adres yönlendirmeleri sadece Vercel'de çalışır.
+
 ## Vercel
 
 Vercel'de "Add New Project" deyip bu repoyu seçin. Framework otomatik "Next.js"

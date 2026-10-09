@@ -1,8 +1,10 @@
-import { firma } from "@/data/firma";
+import { siteUrl } from "@/data/firma";
+
+export const dynamic = "force-static";
 
 export default function robots() {
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${firma.site}/sitemap.xml`,
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }

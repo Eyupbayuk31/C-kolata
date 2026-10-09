@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Hakkımızda – Resul Baskı'nın Hikayesi ve Şuhut Tesisimiz",
   description:
-    "MB Çikolata, Resul Baskı'nın bir çikolata fabrikasında işçilikle başlayan hikayesinden doğdu. Bugün Şuhut OSB'deki 2.000 m² tesisinde üretim yapıyor ve 7 ülkeye ihracat gerçekleştiriyor.",
+    "MB Çikolata, Resul Baskı'nın bir çikolata fabrikasında işçilikle başlayan hikayesinden doğdu. Bugün Şuhut OSB'deki 2.000 m² tesisinde üretim yapıyor ve 11 ülkeye ihracat gerçekleştiriyor.",
   alternates: { canonical: "/hakkimizda" },
 };
 
@@ -16,7 +16,7 @@ export default function Hakkimizda() {
       <section className="sayfa-ust">
         <div className="kap">
           <h1>Hakkımızda</h1>
-          <p>Bir üretim bandında başlayan, bugün 7 ülkeye çikolata gönderen hikaye.</p>
+          <p>Bir üretim bandında başlayan, bugün 11 ülkeye çikolata gönderen hikaye.</p>
         </div>
       </section>
 
@@ -77,13 +77,13 @@ export default function Hakkimizda() {
         </div>
 
         <section className="ihracat">
-          <h2>İhracat yaptığımız ülkeler</h2>
+          <h2>Başlıca ihracat pazarlarımız</h2>
           <ul className="ulke-liste">
             {ihracat.map((u) => (
               <li key={u}>{u}</li>
             ))}
           </ul>
-          <p>Bunların yanında çeşitli Avrupa pazarlarına da sevkiyat yapıyoruz.</p>
+          <p>Toplam 11 ülkeye ihracat yapıyoruz; bunların yanında çeşitli Avrupa pazarlarına da sevkiyat var.</p>
         </section>
 
         <div className="cagri">

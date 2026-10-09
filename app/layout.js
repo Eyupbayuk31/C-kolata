@@ -3,7 +3,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButonu from "@/components/WhatsAppButonu";
-import { firma } from "@/data/firma";
+import { firma, siteUrl } from "@/data/firma";
+import { yol } from "@/lib/yol";
 
 const baslikFont = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
@@ -19,21 +20,28 @@ const metinFont = Nunito_Sans({
 });
 
 export const metadata = {
-  metadataBase: new URL(firma.site),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "MB Çikolata | Toptan Draje, Çikolata ve Şekerleme – Afyonkarahisar",
     template: "%s | MB Çikolata",
   },
   description:
-    "Afyonkarahisar'da üretim yapan MB Çikolata, Mr ResBaa markalı 12 çeşit helal sertifikalı draje ve çikolata ürünlerini toptan satıyor. 7 ülkeye ihracat. Teklif için bize yazın.",
+    "Afyonkarahisar'da üretim yapan MB Çikolata, Mr ResBaa markalı 12 çeşit helal sertifikalı draje ve çikolata ürünlerini toptan satıyor. 11 ülkeye ihracat. Teklif için bize yazın.",
+  // Paylaşım görselini dosya olarak değil adresle veriyoruz; alt yol (GitHub Pages)
+  // metadataBase üzerinden bir kez eklenmiş oluyor.
   openGraph: {
     type: "website",
     locale: "tr_TR",
     siteName: "MB Çikolata",
+    images: [{ url: "/opengraph-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.png"],
   },
   icons: {
-    icon: "/icon-192.png",
-    apple: "/icon-192.png",
+    icon: yol("/icon-192.png"),
+    apple: yol("/icon-192.png"),
   },
 };
 
@@ -46,9 +54,9 @@ const firmaVerisi = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: firma.ad,
-  url: firma.site,
-  logo: `${firma.site}/icon-512.png`,
-  image: `${firma.site}/opengraph-image.png`,
+  url: siteUrl,
+  logo: `${siteUrl}/icon-512.png`,
+  image: `${siteUrl}/opengraph-image.png`,
   telephone: firma.telefon,
   email: firma.eposta,
   address: {

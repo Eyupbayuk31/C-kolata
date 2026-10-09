@@ -4,6 +4,7 @@ import UrunKarti from "@/components/UrunKarti";
 import { urunler, urunGorseli, urunBul } from "@/data/urunler";
 import { haberler, tarihYaz } from "@/data/haberler";
 import { whatsappLink } from "@/data/firma";
+import { yol } from "@/lib/yol";
 
 export const metadata = {
   alternates: { canonical: "/" },
@@ -28,10 +29,10 @@ const secilenler = [
 ].map(urunBul);
 
 const rakamlar = [
-  ["12", "çeşit Mr ResBaa draje"],
-  ["7", "ülkeye ihracat"],
-  ["2.000 m²", "üretim tesisi"],
-  ["%150", "kapasite artışı"],
+  ["14", "yıllık tecrübe"],
+  ["29", "çeşit çikolata"],
+  ["26", "çeşit draje"],
+  ["11", "ülkeye ihracat"],
 ];
 
 export default function Anasayfa() {
@@ -46,7 +47,7 @@ export default function Anasayfa() {
             </h1>
             <p className="giris">
               Fındıktan Antep fıstığına, dondurularak kurutulmuş meyveden kahve çekirdeğine kadar
-              12 çeşit sütlü ve beyaz çikolata kaplamalı draje üretiyoruz. Hepsi helal sertifikalı,
+              Mr ResBaa serimizde 12 çeşit sütlü ve beyaz çikolata kaplamalı draje var. Hepsi helal sertifikalı,
               ilave glikoz şurubu yok.
             </p>
             <div className="dugmeler">
@@ -123,7 +124,7 @@ export default function Anasayfa() {
               <li>Helal sertifikalı ürünler</li>
               <li>İlave glikoz şurubu içermez</li>
               <li>80 gr zip-lock ambalaj, raf ve toptan satışa uygun</li>
-              <li>Irak'tan Almanya'ya 7 ülkeye düzenli ihracat</li>
+              <li>11 ülkeye düzenli ihracat</li>
             </ul>
             <div className="dugmeler">
               <Link href="/hakkimizda" className="dugme ikinci">Hikayemiz</Link>
@@ -153,7 +154,7 @@ export default function Anasayfa() {
             </p>
           </div>
           <div className="ortala">
-            <a href="/Katalog.pdf" className="dugme" target="_blank" rel="noopener">
+            <a href={yol("/Katalog.pdf")} className="dugme" target="_blank" rel="noopener">
               Kataloğu indir
             </a>
           </div>

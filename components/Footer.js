@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { firma } from "@/data/firma";
+import { yol } from "@/lib/yol";
 
 export default function Footer() {
   const yil = new Date().getFullYear();
@@ -32,7 +33,7 @@ export default function Footer() {
             <li><Link href="/hakkimizda">Hakkımızda</Link></li>
             <li><Link href="/haberler">Haberler</Link></li>
             <li><Link href="/bayilik">Bayilik başvurusu</Link></li>
-            <li><a href="/Katalog.pdf" target="_blank" rel="noopener">Ürün kataloğu (PDF)</a></li>
+            <li><a href={yol("/Katalog.pdf")} target="_blank" rel="noopener">Ürün kataloğu (PDF)</a></li>
           </ul>
         </div>
 

@@ -29,6 +29,10 @@ export const firma = {
   mersisNo: "",
 };
 
+// Yayın adresi. GitHub Pages'te workflow bunu github.io adresine çeker,
+// kendi alan adına geçince varsayılan (firma.site) kullanılır.
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || firma.site;
+
 export function whatsappLink(mesaj) {
   const metin = mesaj ? `?text=${encodeURIComponent(mesaj)}` : "";
   return `https://wa.me/${firma.telefonRaw}${metin}`;

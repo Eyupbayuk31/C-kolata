@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import UrunKarti from "@/components/UrunKarti";
 import { urunler, urunBul, urunGorseli } from "@/data/urunler";
-import { firma, whatsappLink } from "@/data/firma";
+import { firma, siteUrl, whatsappLink } from "@/data/firma";
 
 export function generateStaticParams() {
   return urunler.map((u) => ({ slug: u.slug }));
@@ -38,7 +38,7 @@ export default async function UrunSayfasi({ params }) {
     "@type": "Product",
     name: `Mr ResBaa ${urun.ad} ${urun.gramaj}`,
     description: urun.aciklama,
-    image: `${firma.site}${urunGorseli(urun)}`,
+    image: `${siteUrl}${urunGorseli(urun)}`,
     brand: { "@type": "Brand", name: firma.marka },
     manufacturer: { "@type": "Organization", name: firma.ad },
     category: urun.kategori,

@@ -1,4 +1,5 @@
 import TeklifFormu from "@/components/TeklifFormu";
+import { yol } from "@/lib/yol";
 
 export const metadata = {
   title: "Bayilik Başvurusu",
@@ -22,7 +23,7 @@ export default function Bayilik() {
           <div className="yazi-blok">
             <h2>Bizimle çalışmak</h2>
             <ul className="ozellik-liste">
-              <li>12 çeşit helal sertifikalı draje</li>
+              <li>Mr ResBaa serisinde 12 çeşit helal sertifikalı draje</li>
               <li>80 gr zip-lock ambalaj, raf satışına uygun</li>
               <li>Doğrudan üreticiden toptan fiyat</li>
               <li>Türkiye'nin her yerine sevkiyat</li>
@@ -33,7 +34,7 @@ export default function Bayilik() {
             </p>
             <p>
               Ürün kataloğunu önceden görmek isterseniz{" "}
-              <a href="/Katalog.pdf" target="_blank" rel="noopener">buradan indirebilirsiniz</a>.
+              <a href={yol("/Katalog.pdf")} target="_blank" rel="noopener">buradan indirebilirsiniz</a>.
             </p>
           </div>
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { haberler, haberBul, tarihYaz } from "@/data/haberler";
-import { firma } from "@/data/firma";
+import { firma, siteUrl } from "@/data/firma";
 
 export function generateStaticParams() {
   return haberler.map((h) => ({ slug: h.slug }));
@@ -39,7 +39,7 @@ export default async function HaberSayfasi({ params }) {
     description: haber.ozet,
     author: { "@type": "Organization", name: firma.ad },
     publisher: { "@type": "Organization", name: firma.ad },
-    ...(haber.gorsel && { image: `${firma.site}${haber.gorsel}` }),
+    ...(haber.gorsel && { image: `${siteUrl}${haber.gorsel}` }),
   };
 
   return (
