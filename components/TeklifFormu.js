@@ -1,60 +1,61 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
-import { firma, whatsappLink } from "@/data/firma";
+import Metin from "@/components/Metin";
 
 // Sunucu tarafında mail servisi yok, o yüzden form WhatsApp'ı hazır mesajla açıyor.
-// İstenirse sonradan bir API rotasına çevrilebilir.
-export default function TeklifFormu({ bayilik = false }) {
+// f: lib/ui sözlüğündeki form metinleri, wa: WhatsApp numarası (sadece rakam)
+export default function TeklifFormu({ lang, f, wa, eposta, bayilik = false }) {
   const [hata, setHata] = useState("");
 
   function gonder(e) {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
-    const ad = f.get("ad").trim();
-    const tel = f.get("telefon").trim();
+    const v = new FormData(e.currentTarget);
+    const ad = v.get("ad").trim();
+    const tel = v.get("telefon").trim();
 
     if (ad.length < 2 || tel.replace(/\D/g, "").length < 10) {
-      setHata("Adınızı ve geçerli bir telefon numarası yazın.");
+      setHata(f.hata);
       return;
     }
     setHata("");
 
     const satirlar = [
-      bayilik ? "Merhaba, bayilik başvurusu yapmak istiyorum." : "Merhaba, toptan fiyat teklifi almak istiyorum.",
-      `Ad Soyad: ${ad}`,
-      f.get("firma") && `Firma: ${f.get("firma").trim()}`,
-      bayilik && f.get("sehir") && `Şehir: ${f.get("sehir").trim()}`,
-      bayilik && f.get("isletme") && `İşletme türü: ${f.get("isletme")}`,
-      `Telefon: ${tel}`,
-      f.get("mesaj") && `Mesaj: ${f.get("mesaj").trim()}`,
+      bayilik ? f.msgBayi : f.msgTeklif,
+      `${f.msgAd}: ${ad}`,
+      v.get("firma") && `${f.msgFirma}: ${v.get("firma").trim()}`,
+      bayilik && v.get("sehir") && `${f.msgSehir}: ${v.get("sehir").trim()}`,
+      bayilik && v.get("isletme") && `${f.msgIsletme}: ${v.get("isletme")}`,
+      `${f.msgTelefon}: ${tel}`,
+      v.get("mesaj") && `${f.msgMesaj}: ${v.get("mesaj").trim()}`,
     ].filter(Boolean);
 
-    window.open(whatsappLink(satirlar.join("\n")), "_blank", "noopener");
+    window.open(`https://wa.me/${wa}?text=${encodeURIComponent(satirlar.join("\n"))}`, "_blank", "noopener");
   }
 
   return (
     <form className="form" onSubmit={gonder} noValidate>
       <div className="form-iki">
         <label>
-          Ad soyad
+          {f.adSoyad}
           <input name="ad" type="text" autoComplete="name" required />
         </label>
         <label>
-          Telefon
-          <input name="telefon" type="tel" autoComplete="tel" placeholder="05xx xxx xx xx" required />
+          {f.telefon}
+          <input name="telefon" type="tel" dir="ltr" autoComplete="tel" placeholder={f.telefonIpucu} required />
         </label>
       </div>
 
       <div className="form-iki">
         <label>
-          <span>Firma <small>(varsa)</small></span>
+          <span>
+            {f.firma} <small>{f.varsa}</small>
+          </span>
           <input name="firma" type="text" autoComplete="organization" />
         </label>
         {bayilik && (
           <label>
-            Şehir
+            {f.sehir}
             <input name="sehir" type="text" autoComplete="address-level1" />
           </label>
         )}
@@ -62,38 +63,38 @@ export default function TeklifFormu({ bayilik = false }) {
 
       {bayilik && (
         <label>
-          İşletme türü
+          {f.isletme}
           <select name="isletme" defaultValue="">
-            <option value="">Seçin</option>
-            <option>Market / bakkal</option>
-            <option>Kuruyemişçi / şekerci</option>
-            <option>Toptancı / distribütör</option>
-            <option>Kafe / restoran</option>
-            <option>Online satıcı</option>
-            <option>Diğer</option>
+            <option value="">{f.sec}</option>
+            {f.isletmeler.map((o) => (
+              <option key={o}>{o}</option>
+            ))}
           </select>
         </label>
       )}
 
       <label>
-        Mesajınız
-        <textarea
-          name="mesaj"
-          rows={4}
-          placeholder={bayilik ? "Bölgeniz ve ihtiyacınız hakkında kısaca yazın." : "Hangi ürünlerle ilgileniyorsunuz, yaklaşık ne kadar?"}
-        />
+        {f.mesaj}
+        <textarea name="mesaj" rows={4} placeholder={bayilik ? f.mesajIpucuBayi : f.mesajIpucuTeklif} />
       </label>
 
       <p className="form-not">
-        Gönder'e basınca WhatsApp açılır ve mesajınız hazır gelir. Bilgileriniz yalnızca size
-        dönüş yapmak için kullanılır, ayrıntı için <Link href="/kvkk">KVKK metnine</Link> bakın.
+        <Metin metin={f.not} lang={lang} />
       </p>
 
-      {hata && <p className="form-hata" role="alert">{hata}</p>}
+      {hata && (
+        <p className="form-hata" role="alert">
+          {hata}
+        </p>
+      )}
 
       <div className="form-alt">
-        <button type="submit" className="dugme">WhatsApp ile gönder</button>
-        <a className="dugme ikinci" href={`mailto:${firma.eposta}`}>E-posta yaz</a>
+        <button type="submit" className="dugme">
+          {f.gonder}
+        </button>
+        <a className="dugme ikinci" href={`mailto:${eposta}`}>
+          {f.epostaYaz}
+        </a>
       </div>
     </form>
   );

@@ -29,6 +29,7 @@ jobs:
       - name: Site adresini ayarla
         run: |
           REPO="${GITHUB_REPOSITORY#*/}"
+          echo "NEXT_PUBLIC_REPO=$GITHUB_REPOSITORY" >> "$GITHUB_ENV"
           OWNER="$(echo "$GITHUB_REPOSITORY_OWNER" | tr '[:upper:]' '[:lower:]')"
           if [ -f public/CNAME ]; then
             echo "NEXT_PUBLIC_SITE_URL=https://$(tr -d '[:space:]' < public/CNAME)" >> "$GITHUB_ENV"

@@ -1,5 +1,5 @@
 // Hero'daki yavaşça dönen yuvarlak yazı.
-export default function Rozet({ yazi = "MB ÇİKOLATA · HELAL SERTİFİKALI · TOPTAN · AFYONKARAHİSAR · " }) {
+export default function Rozet({ yazi }) {
   return (
     <div className="rozet" aria-hidden="true">
       <svg viewBox="0 0 200 200">

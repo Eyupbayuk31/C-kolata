@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { urunGorseli } from "@/data/urunler";
+import { dilYol } from "@/lib/dil";
+import { urunGorseli } from "@/lib/gorsel";
 
-export default function UrunKarti({ urun, oncelikli = false }) {
+// urun: { slug, ad, ozet, kategori (etiket), gramaj, renk }  — metinler zaten dile çevrilmiş gelir
+export default function UrunKarti({ urun, lang, incele, altYazi, oncelikli = false }) {
   return (
-    <Link href={`/urun/${urun.slug}`} className="urun-karti" style={{ "--urun-renk": urun.renk }}>
+    <Link href={dilYol(lang, `/urun/${urun.slug}`)} className="urun-karti" style={{ "--urun-renk": urun.renk }}>
       <div className="urun-resim">
         <Image
           src={urunGorseli(urun)}
@@ -23,7 +25,7 @@ export default function UrunKarti({ urun, oncelikli = false }) {
         <h3>{urun.ad}</h3>
         <p>{urun.ozet}</p>
         <span className="urun-git">
-          İncele <span aria-hidden="true">→</span>
+          {incele} <span aria-hidden="true">{altYazi}</span>
         </span>
       </div>
     </Link>

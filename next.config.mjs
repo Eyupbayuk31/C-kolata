@@ -34,9 +34,12 @@ const nextConfig = pages
       basePath,
       trailingSlash: true,
       images: { loader: "custom", loaderFile: "./lib/gorselYukleyici.js" },
+      env: { NEXT_PUBLIC_SLASH: "1" },
+      experimental: { globalNotFound: true },
     }
   : {
       images: { formats: ["image/avif", "image/webp"] },
+      experimental: { globalNotFound: true },
       async redirects() {
         return yonlendirmeler;
       },

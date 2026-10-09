@@ -1,0 +1,99 @@
+{
+  "iletisim": {
+    "telefon": "+90 555 028 99 52",
+    "telefon2": "+90 532 677 46 69",
+    "eposta": "satis@mbcikolata.com",
+    "adres": {
+      "tr": "Şuhut OSB Mevkii 1. Cadde 5. Sokak No:4 İç Kapı No:2, Belkaracaören Köyü, Merkez / Afyonkarahisar",
+      "en": "Şuhut OSB Mevkii, 1st Avenue, 5th Street, No:4 Inner Door No:2, Belkaracaören Village, Merkez / Afyonkarahisar, Türkiye",
+      "ar": "منطقة شوهوت الصناعية، الشارع الأول، الزقاق 5، رقم 4، الباب الداخلي 2، قرية بلقاراجاؤرن، المركز / أفيون قره حصار، تركيا"
+    }
+  },
+  "saatler": [
+    {
+      "gun": {
+        "tr": "Hafta içi",
+        "en": "Weekdays",
+        "ar": "أيام الأسبوع"
+      },
+      "saat": "08:00 – 18:00"
+    },
+    {
+      "gun": {
+        "tr": "Cumartesi",
+        "en": "Saturday",
+        "ar": "السبت"
+      },
+      "saat": "09:00 – 18:00"
+    },
+    {
+      "gun": {
+        "tr": "Pazar",
+        "en": "Sunday",
+        "ar": "الأحد"
+      },
+      "saat": {
+        "tr": "Kapalı",
+        "en": "Closed",
+        "ar": "مغلق"
+      }
+    }
+  ],
+  "sosyal": {
+    "instagram": "https://www.instagram.com/mbchocolate.tr/",
+    "facebook": "https://www.facebook.com/share/n4wLW8wKfsDomztb/"
+  },
+  "rakamlar": [
+    {
+      "id": "cikolata",
+      "sayi": 29,
+      "etiket": {
+        "tr": "Çikolata çeşidi",
+        "en": "Chocolate varieties",
+        "ar": "أنواع الشوكولاتة"
+      }
+    },
+    {
+      "id": "draje",
+      "sayi": 26,
+      "etiket": {
+        "tr": "Draje çeşidi",
+        "en": "Dragée varieties",
+        "ar": "أنواع الدراجيه"
+      }
+    },
+    {
+      "id": "tecrube",
+      "sayi": 14,
+      "etiket": {
+        "tr": "Yıllık tecrübe",
+        "en": "Years of experience",
+        "ar": "سنة من الخبرة"
+      }
+    },
+    {
+      "id": "ulke",
+      "sayi": 11,
+      "etiket": {
+        "tr": "Ülkeye ihracat",
+        "en": "Export countries",
+        "ar": "دولة نصدّر إليها"
+      }
+    }
+  ],
+  "duyuru": {
+    "aktif": false,
+    "metin": {
+      "tr": "",
+      "en": "",
+      "ar": ""
+    },
+    "link": ""
+  },
+  "resmi": {
+    "ticariUnvan": "",
+    "vergiDairesi": "",
+    "vergiNo": "",
+    "mersisNo": ""
+  }
+}

@@ -10,12 +10,29 @@ Next.js (App Router) ile yazılmış tanıtım ve toptan teklif sitesi. Veritaba
 
 ## İçerik nerede
 
-- `data/firma.js`: telefon, adres, sosyal medya, resmi firma bilgileri
-- `data/urunler.js`: ürünler (görseller `public/img/urunler/<slug>.webp`)
-- `data/haberler.js`: haberler
-- `app/`: sayfalar, `components/`: ortak parçalar
+İçerik **yönetim panelinden** (`/yonetim`) değiştirilir, kullanımı için [YONETIM-REHBERI.md](YONETIM-REHBERI.md).
+Panel aşağıdaki dosyaları GitHub API'si ile commit'ler:
 
-Yeni ürün eklerken `public/img/urunler/` içine `<slug>.webp` koymak yeterli.
+- `data/urunler.json`: ürünler (görseller `public/img/urunler/<slug>.webp`)
+- `data/haberler.json`: haberler (görseller `public/img/haber/<slug>.webp`)
+- `data/ayarlar.json`: telefon, adres, saatler, rakamlar, duyuru bandı, sosyal medya, resmi bilgiler
+
+Sayfalardaki sabit metinler (başlıklar, açıklamalar, yasal sayfalar) kodda: `lib/ui/tr.js`, `en.js`, `ar.js`.
+Sayfa düzenleri `views/`, ortak parçalar `components/`, rotalar `app/`.
+
+## Diller
+
+Türkçe kök adreste (`/urunler`), İngilizce `/en/...`, Arapça `/ar/...` (sağdan sola) altında.
+Her sayfada `hreflang` ve sitemap alternatifleri otomatik üretilir.
+
+**Yeni dil ekleme** (ör. Almanca `de`):
+
+1. `lib/dil.js` içindeki `diller` ve `dilBilgi`'ye ekleyin.
+2. `lib/ui/en.js`'i `lib/ui/de.js` olarak kopyalayıp çevirin, `lib/ui/index.js`'e ekleyin.
+3. `data/*.json` içindeki `{tr, en, ar}` alanlarına `de` ekleyin (boş kalırsa Türkçe gösterilir).
+4. `components/yonetim/ortak.js` içindeki `DILLER` listesine ekleyin ki panelde de çıksın.
+
+Arapça çeviriler anadil konuşuru tarafından okunmalıdır.
 
 ## GitHub Pages
 
