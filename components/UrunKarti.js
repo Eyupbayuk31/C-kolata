@@ -4,7 +4,7 @@ import { urunGorseli } from "@/data/urunler";
 
 export default function UrunKarti({ urun, oncelikli = false }) {
   return (
-    <Link href={`/urun/${urun.slug}`} className="urun-karti">
+    <Link href={`/urun/${urun.slug}`} className="urun-karti" style={{ "--urun-renk": urun.renk }}>
       <div className="urun-resim">
         <Image
           src={urunGorseli(urun)}
@@ -16,10 +16,15 @@ export default function UrunKarti({ urun, oncelikli = false }) {
         />
       </div>
       <div className="urun-yazi">
-        <span className="etiket">{urun.kategori}</span>
+        <span className="urun-ust">
+          <i className="renk-nokta" aria-hidden="true" />
+          {urun.kategori} · {urun.gramaj}
+        </span>
         <h3>{urun.ad}</h3>
         <p>{urun.ozet}</p>
-        <span className="gramaj">{urun.gramaj}</span>
+        <span className="urun-git">
+          İncele <span aria-hidden="true">→</span>
+        </span>
       </div>
     </Link>
   );

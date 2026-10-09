@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, Nunito_Sans } from "next/font/google";
+import { Bodoni_Moda, Jost, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -6,16 +6,26 @@ import WhatsAppButonu from "@/components/WhatsAppButonu";
 import { firma, siteUrl } from "@/data/firma";
 import { yol } from "@/lib/yol";
 
-const baslikFont = Cormorant_Garamond({
+const baslikFont = Bodoni_Moda({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   variable: "--font-baslik",
   display: "swap",
 });
 
-const metinFont = Nunito_Sans({
+const metinFont = Jost({
   subsets: ["latin", "latin-ext"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-metin",
+  display: "swap",
+});
+
+// kurucunun imzası için el yazısı
+const imzaFont = Pinyon_Script({
+  subsets: ["latin", "latin-ext"],
+  weight: "400",
+  variable: "--font-imza",
   display: "swap",
 });
 
@@ -85,12 +95,15 @@ const firmaVerisi = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="tr" className={`${baslikFont.variable} ${metinFont.variable}`}>
+    <html lang="tr" className={`${baslikFont.variable} ${metinFont.variable} ${imzaFont.variable}`}>
       <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(firmaVerisi) }}
         />
+        <noscript>
+          <style>{`[data-belir]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         <a href="#icerik" className="atla">
           İçeriğe geç
         </a>

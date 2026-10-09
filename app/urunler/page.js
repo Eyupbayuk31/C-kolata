@@ -1,3 +1,4 @@
+import SayfaUst from "@/components/SayfaUst";
 import Link from "next/link";
 import UrunKarti from "@/components/UrunKarti";
 import { urunler, kategoriler } from "@/data/urunler";
@@ -13,15 +14,9 @@ export const metadata = {
 export default function Urunler() {
   return (
     <>
-      <section className="sayfa-ust">
-        <div className="kap">
-          <h1>Ürünlerimiz</h1>
-          <p>
-            Hepsi Afyonkarahisar'daki tesisimizde üretiliyor. Toptan fiyat ve minimum sipariş için
-            bize yazmanız yeterli.
-          </p>
-        </div>
-      </section>
+      <SayfaUst ustBaslik="Mr ResBaa serisi" baslik="Ürünlerimiz" gorsel="/img/atmosfer/trufler-pudra.webp">
+        Hepsi Afyonkarahisar'daki tesisimizde üretiliyor. Toptan fiyat ve minimum sipariş için bize yazmanız yeterli.
+      </SayfaUst>
 
       <div className="kap bolum">
         {kategoriler.map((kat) => (

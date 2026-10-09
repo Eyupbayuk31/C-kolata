@@ -1,4 +1,5 @@
-// Ürünler. Fiyat bilerek yok: eski sitedeki fiyatlar güncel değildi,
+// Ürünler. `renk` paketin ana rengi, kartlarda parlama için kullanılıyor.
+// Fiyat bilerek yok: eski sitedeki fiyatlar güncel değildi,
 // toptan fiyat zaten teklifle konuşuluyor.
 
 const drajeOrtak =
@@ -9,6 +10,7 @@ export const kategoriler = ["Draje", "Krema ve Çikolata"];
 export const urunler = [
   {
     slug: "mr-resbaa-findikli-draje-80gr",
+    renk: "#b5432a",
     ad: "Fındıklı Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -17,6 +19,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-antep-fistikli-draje-80gr",
+    renk: "#8aa84a",
     ad: "Antep Fıstıklı Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -25,6 +28,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-bademli-draje-80gr",
+    renk: "#a06c3c",
     ad: "Bademli Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -33,6 +37,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-kahve-cekirdekli-draje-80gr",
+    renk: "#7a5238",
     ad: "Kahve Çekirdekli Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -41,6 +46,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-cilekli-draje-sutlu-cikolata-80gr",
+    renk: "#c8414f",
     ad: "Çilekli Draje (Sütlü Çikolata)",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -49,6 +55,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-cilekli-draje-beyaz-cikolata-80gr",
+    renk: "#c4466c",
     ad: "Çilekli Draje (Beyaz Çikolata)",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -57,6 +64,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-kirazli-draje-80gr",
+    renk: "#9a1f5c",
     ad: "Vişneli Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -65,6 +73,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-mangolu-draje-80gr",
+    renk: "#e0a800",
     ad: "Mangolu Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -73,6 +82,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-bogurtlen-draje-80gr",
+    renk: "#8a7fb8",
     ad: "Böğürtlenli Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -81,6 +91,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-biskuvili-draje-80gr",
+    renk: "#b0201f",
     ad: "Bisküvili Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -89,6 +100,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-binbonbon-draje-80gr",
+    renk: "#7a5bc8",
     ad: "BinBonBon Karışık Draje",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -97,6 +109,7 @@ export const urunler = [
   },
   {
     slug: "mr-resbaa-cikolata-taslari-draje-80gr",
+    renk: "#d9c400",
     ad: "Çikolata Taşları",
     kategori: "Draje",
     gramaj: "80 gr",
@@ -105,6 +118,7 @@ export const urunler = [
   },
   {
     slug: "320-gr-kakaolu-findik-kremasi",
+    renk: "#8a4a26",
     ad: "Kakaolu Fındık Kreması",
     kategori: "Krema ve Çikolata",
     gramaj: "320 gr",
@@ -113,6 +127,7 @@ export const urunler = [
   },
   {
     slug: "cipsli-cikolata-70gr",
+    renk: "#c9a15b",
     ad: "Çıtır Patatesli Çikolata",
     kategori: "Krema ve Çikolata",
     gramaj: "70 gr",

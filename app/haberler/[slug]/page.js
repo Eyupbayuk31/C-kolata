@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { haberler, haberBul, tarihYaz } from "@/data/haberler";
 import { firma, siteUrl } from "@/data/firma";
+import { yol } from "@/lib/yol";
 
 export function generateStaticParams() {
   return haberler.map((h) => ({ slug: h.slug }));
@@ -43,51 +44,68 @@ export default async function HaberSayfasi({ params }) {
   };
 
   return (
-    <article className="kap bolum makale">
+    <article className="makale-sayfa">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(veri) }} />
 
-      <nav className="kirinti" aria-label="Konum">
-        <Link href="/">Anasayfa</Link> / <Link href="/haberler">Haberler</Link> / <span>{haber.baslik}</span>
-      </nav>
+      <div className="kap makale">
+        <nav className="kirinti" aria-label="Konum">
+          <Link href="/">Anasayfa</Link> / <Link href="/haberler">Haberler</Link> / <span>{haber.baslik}</span>
+        </nav>
 
-      <span className="etiket">{haber.kategori} · {tarihYaz(haber.tarih)}</span>
-      <h1>{haber.baslik}</h1>
+        <span className="etiket">{haber.kategori} · {tarihYaz(haber.tarih)}</span>
+        <h1>{haber.baslik}</h1>
+        <p className="makale-ozet">{haber.ozet}</p>
 
-      {haber.gorsel && (
-        <Image
-          className="makale-resim"
-          src={haber.gorsel}
-          alt={haber.baslik}
-          width={1200}
-          height={680}
-          sizes="(max-width: 900px) 100vw, 800px"
-          priority
-        />
-      )}
+        {haber.video ? (
+          <video
+            className="makale-video"
+            controls
+            playsInline
+            preload="none"
+            poster={yol(haber.gorsel)}
+          >
+            <source src={yol(haber.video)} type="video/mp4" />
+          </video>
+        ) : (
+          haber.gorsel && (
+            <Image
+              className="makale-resim"
+              src={haber.gorsel}
+              alt={haber.baslik}
+              width={1200}
+              height={680}
+              sizes="(max-width: 900px) 100vw, 800px"
+              priority
+            />
+          )
+        )}
 
-      {haber.bolumler.map((b, i) => (
-        <section key={i}>
-          {b.baslik && <h2>{b.baslik}</h2>}
-          {b.paragraflar.map((p, j) => (
-            <p key={j}>{p}</p>
-          ))}
-        </section>
-      ))}
+        {haber.bolumler.map((b, i) => (
+          <section key={i}>
+            {b.baslik && <h2>{b.baslik}</h2>}
+            {b.paragraflar.map((p, j) => (
+              <p key={j}>{p}</p>
+            ))}
+          </section>
+        ))}
 
-      {haber.bilgi && (
-        <dl className="ozellik-tablo">
-          {haber.bilgi.map(([a, b]) => (
-            <div key={a}>
-              <dt>{a}</dt>
-              <dd>{b}</dd>
-            </div>
-          ))}
-        </dl>
-      )}
+        {haber.bilgi && (
+          <dl className="ozellik-tablo">
+            {haber.bilgi.map(([a, b]) => (
+              <div key={a}>
+                <dt>{a}</dt>
+                <dd>{b}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
 
-      <p>
-        <Link href="/haberler">← Tüm haberler</Link>
-      </p>
+        <p className="makale-geri">
+          <Link href="/haberler" className="ok-link">
+            <span aria-hidden="true">←</span> Tüm haberler
+          </Link>
+        </p>
+      </div>
     </article>
   );
 }

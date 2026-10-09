@@ -8,7 +8,8 @@ export const haberler = [
     kategori: "Basında Biz",
     baslik: "Foodist İstanbul 2026",
     ozet: "Foodist İstanbul 2026'da standımızı ziyaret eden herkese teşekkürler.",
-    gorsel: null,
+    gorsel: "/img/haber/foodist-istanbul-2026.webp",
+    video: "/video/foodist-2026.mp4",
     bolumler: [
       {
         paragraflar: [

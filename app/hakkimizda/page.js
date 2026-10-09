@@ -1,3 +1,4 @@
+import SayfaUst from "@/components/SayfaUst";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,12 +14,9 @@ const ihracat = ["Irak", "İran", "Endonezya", "Venezuela", "Almanya", "Suudi Ar
 export default function Hakkimizda() {
   return (
     <>
-      <section className="sayfa-ust">
-        <div className="kap">
-          <h1>Hakkımızda</h1>
-          <p>Bir üretim bandında başlayan, bugün 11 ülkeye çikolata gönderen hikaye.</p>
-        </div>
-      </section>
+      <SayfaUst ustBaslik="Hikayemiz" baslik="Hakkımızda" gorsel="/img/atmosfer/trufler-pudra.webp">
+        Bir üretim bandında başlayan, bugün 11 ülkeye çikolata gönderen hikaye.
+      </SayfaUst>
 
       <div className="kap bolum">
         <div className="iki-kolon">

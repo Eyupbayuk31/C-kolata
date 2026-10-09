@@ -46,3 +46,10 @@ olarak algılanır, başka ayar gerekmez.
 - Instagram adresini kontrol edin
 - `public/Katalog.pdf` eski sitedeki dosyadır (16 MB, Ağustos 2024), güncel ve daha hafif bir sürümle değiştirin
 - Eski WordPress adreslerinden yönlendirmeler `next.config.mjs` içinde hazır
+- `public/img/atmosfer/` içindeki şu görseller eski sitenin temasından (Crems) geldi:
+  `trufler-altin.webp`, `trufler-pudra.webp`, `kakao-tablet.webp`, `kakao-cizim.webp`.
+  Tema demo görselleri çoğu zaman sadece önizleme için lisanslıdır; kendi çekimlerinizle
+  ya da lisanslı fotoğraflarla değiştirin (aynı dosya adıyla koymanız yeterli).
+  `cilek.webp` eski siteye 2024'te yüklenmiş, kaynağını kontrol edin.
+- Anasayfadaki kurucu mektubu eski sitedeki metinden ve haberlerden derlendi,
+  Resul Bey'e okutun.

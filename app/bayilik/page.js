@@ -1,3 +1,4 @@
+import SayfaUst from "@/components/SayfaUst";
 import TeklifFormu from "@/components/TeklifFormu";
 import { yol } from "@/lib/yol";
 
@@ -11,12 +12,9 @@ export const metadata = {
 export default function Bayilik() {
   return (
     <>
-      <section className="sayfa-ust">
-        <div className="kap">
-          <h1>Bayilik başvurusu</h1>
-          <p>Market, şekerci, kuruyemişçi ya da distribütörseniz Mr ResBaa'yı rafınıza alın.</p>
-        </div>
-      </section>
+      <SayfaUst ustBaslik="Bizimle çalışın" baslik="Bayilik başvurusu">
+        Market, şekerci, kuruyemişçi ya da distribütörseniz Mr ResBaa'yı rafınıza alın.
+      </SayfaUst>
 
       <div className="kap bolum">
         <div className="iletisim-izgara">

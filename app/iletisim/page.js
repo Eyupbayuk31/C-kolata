@@ -1,3 +1,4 @@
+import SayfaUst from "@/components/SayfaUst";
 import TeklifFormu from "@/components/TeklifFormu";
 import { firma, whatsappLink } from "@/data/firma";
 
@@ -13,12 +14,9 @@ const haritaAdresi = encodeURIComponent("Şuhut OSB 1. Cadde 5. Sokak No:4 Belka
 export default function Iletisim() {
   return (
     <>
-      <section className="sayfa-ust">
-        <div className="kap">
-          <h1>İletişim</h1>
-          <p>Toptan fiyat, numune ve sipariş için bize ulaşın.</p>
-        </div>
-      </section>
+      <SayfaUst ustBaslik="Toptan sipariş" baslik="İletişim">
+        Toptan fiyat, numune ve sipariş için bize ulaşın.
+      </SayfaUst>
 
       <div className="kap bolum">
         <div className="iletisim-izgara">

@@ -62,7 +62,7 @@ export default async function UrunSayfasi({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(veri) }} />
 
-      <div className="kap bolum">
+      <div className="kap bolum urun-sayfa" style={{ "--urun-renk": urun.renk }}>
         <nav className="kirinti" aria-label="Konum">
           <Link href="/">Anasayfa</Link> / <Link href="/urunler">Ürünler</Link> / <span>{urun.ad}</span>
         </nav>
@@ -79,8 +79,11 @@ export default async function UrunSayfasi({ params }) {
             />
           </div>
 
-          <div>
-            <span className="etiket">{urun.kategori}</span>
+          <div className="urun-detay-yazi">
+            <span className="urun-ust">
+              <i className="renk-nokta" aria-hidden="true" />
+              Mr ResBaa · {urun.kategori}
+            </span>
             <h1>{urun.ad}</h1>
             <p className="giris">{urun.aciklama}</p>
 
