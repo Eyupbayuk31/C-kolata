@@ -1090,3 +1090,24 @@ html[dir="rtl"] {
   .guven strong { font-size: 1.08rem; }
   .guven span { font-size: 0.58rem; letter-spacing: 0.12em; }
 }
+
+/* ---------- büyük cümle: tam genişlik kakao fotoğrafı ---------- */
+.bildiri {
+  padding: 190px 0;
+  background:
+    linear-gradient(180deg, var(--zemin) 0%, rgba(15, 11, 9, 0) 22%, rgba(15, 11, 9, 0) 78%, var(--zemin) 100%),
+    radial-gradient(ellipse 70% 80% at 50% 50%, rgba(10, 7, 5, 0.28), rgba(10, 7, 5, 0.74) 100%),
+    var(--bildiri-gorsel) center / cover no-repeat,
+    var(--zemin);
+  border-block: 1px solid var(--cizgi);
+}
+.bildiri::before { content: none; }
+.bildiri h2 { text-shadow: 0 4px 40px rgba(0, 0, 0, 0.65); }
+.bildiri .elmas { border-color: rgba(236, 208, 154, 0.5); }
+.bildiri .elmas::after { border-color: rgba(236, 208, 154, 0.22); }
+@media (hover: hover) and (min-width: 900px) {
+  .bildiri { background-attachment: scroll, scroll, fixed, scroll; }
+}
+@media (max-width: 900px) {
+  .bildiri { padding: 130px 0; }
+}

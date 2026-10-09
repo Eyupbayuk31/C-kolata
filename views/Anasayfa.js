@@ -168,7 +168,7 @@ export default function Anasayfa({ lang }) {
       </section>
 
       {/* ---------- büyük cümle ---------- */}
-      <section className="bildiri" style={{ "--cizim": `url(${yol("/img/atmosfer/kakao-cizim.webp")})` }}>
+      <section className="bildiri" style={{ "--bildiri-gorsel": `url(${yol("/img/atmosfer/kakao-tablet.webp")})` }}>
         <Belir className="kap">
           <span className="elmas" aria-hidden="true" />
           <h2>
