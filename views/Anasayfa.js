@@ -4,6 +4,8 @@ import Belir from "@/components/Belir";
 import Damla from "@/components/Damla";
 import Rozet from "@/components/Rozet";
 import Sayac from "@/components/Sayac";
+import Sss from "@/components/Sss";
+import Toz from "@/components/Toz";
 import UrunKarti from "@/components/UrunKarti";
 import { firma, whatsappLink } from "@/data/firma";
 import { haberler } from "@/data/haberler";
@@ -61,6 +63,7 @@ export default function Anasayfa({ lang }) {
     <>
       {/* ---------- vitrin ---------- */}
       <section className="kahraman" style={{ "--kahraman-gorsel": `url(${yol("/img/atmosfer/trufler-altin.webp")})` }}>
+        <Toz />
         <div className="kap kahraman-ic">
           <div className="kahraman-yazi">
             <p className="ust-baslik giris-1">{doldur(a.eyebrow, v)}</p>
@@ -78,6 +81,14 @@ export default function Anasayfa({ lang }) {
                 {a.btnFiyat}
               </a>
             </div>
+            <ul className="guven giris-4">
+              {a.guven.map(([x, y]) => (
+                <li key={y}>
+                  <strong>{doldur(x, v)}</strong>
+                  <span>{y}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="kemer-alani giris-5">
@@ -191,6 +202,30 @@ export default function Anasayfa({ lang }) {
         </div>
       </section>
 
+      {/* ---------- sipariş adımları ---------- */}
+      <section className="bolum koyu">
+        <div className="kap">
+          <Belir className="bolum-baslik ortali">
+            <p className="ust-baslik">{a.adimUst}</p>
+            <h2>{a.adimBaslik}</h2>
+          </Belir>
+          <ol className="adimlar">
+            {a.adimlar.map((x, i) => (
+              <Belir as="li" key={x.baslik} gecikme={i * 120} className="adim">
+                <span className="adim-no" aria-hidden="true">{i + 1}</span>
+                <h3>{x.baslik}</h3>
+                <p>{x.yazi}</p>
+              </Belir>
+            ))}
+          </ol>
+          <div className="ortala">
+            <a href={whatsappLink(t.wa.fiyatListesi)} className="dugme" target="_blank" rel="noopener noreferrer">
+              {a.btnFiyat}
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ---------- rakamlar ---------- */}
       <section className="rakamlar" style={{ "--rakam-gorsel": `url(${yol("/img/atmosfer/trufler-pudra.webp")})` }}>
         <div className="kap rakam-izgara">
@@ -277,6 +312,19 @@ export default function Anasayfa({ lang }) {
               </Belir>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ---------- sık sorulanlar ---------- */}
+      <section className="bolum">
+        <div className="kap">
+          <Belir className="bolum-baslik ortali">
+            <p className="ust-baslik">{a.sssUst}</p>
+            <h2>{a.sssBaslik}</h2>
+          </Belir>
+          <Belir>
+            <Sss maddeler={a.sss} degerler={v} />
+          </Belir>
         </div>
       </section>
     </>

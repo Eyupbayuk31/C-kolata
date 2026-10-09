@@ -1,4 +1,5 @@
 import "@/app/globals.css";
+import Etkilesim from "@/components/Etkilesim";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButonu from "@/components/WhatsAppButonu";
@@ -52,6 +53,7 @@ export default function Kabuk({ lang, children }) {
         <a href="#icerik" className="atla">
           {t.nav.atla}
         </a>
+        <Etkilesim />
         <Header lang={lang} nav={t.nav} duyuru={duyuruMetni} duyuruLink={firma.duyuru.link} />
         <main id="icerik">{children}</main>
         <Footer lang={lang} />
